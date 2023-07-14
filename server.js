@@ -4,7 +4,6 @@ import helmet from "helmet";
 import "dotenv/config";
 import { dbConnect } from "./src/config/dbConfig.js";
 import messageRouter from "./src/routers/MessageRouter.js";
-import loginsRouter from "./src/routers/loginRouter.js";
 
 // connecting database
 dbConnect();
@@ -25,7 +24,6 @@ app.use(cors());
 app.use(helmet());
 // handling router
 app.use("/api/v1/messages", messageRouter);
-app.use("/api/v1/logins", loginsRouter);
 
 app.use("/", (req, res, next) => {
   res.json({
